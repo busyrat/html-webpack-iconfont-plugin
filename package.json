@@ -1,0 +1,20 @@
+{
+  "name": "html-webpack-iconfont-plugin",
+  "version": "1.0.0",
+  "description": "添加",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "busyrat",
+  "keywords": [
+    "iconfont",
+    "html",
+    "cdn"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/busyrat/html-webpack-iconfont-plugin"
+  },
+  "devDependencies": {
+    "request": "^2.88.0"
+  }
+}
