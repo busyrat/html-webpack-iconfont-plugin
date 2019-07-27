@@ -58,7 +58,6 @@ class HtmlWebpackIconfontPlugin {
 
   // 处理方法
   apply(compiler) {
-    // webpack3.x
     const { key, useCDN, output, colour } = this.options
 
     let url = `//at.alicdn.com/t/${key}`
@@ -66,19 +65,15 @@ class HtmlWebpackIconfontPlugin {
       url = `${output}/iconfont`
     }
 
-    compiler.plugin('compilation', compilation => {
-      compilation.plugin('html-webpack-plugin-before-html-processing', (htmlPluginData, callback) => {
+    compiler.hooks.compilation.tap('compilation', compilation =>
+      compilation.hooks.htmlWebpackPluginBeforeHtmlProcessing.tapAsync('processing', (htmlPluginData, cb) => {
         htmlPluginData.assets.css.push(url + '.css')
         if (colour) {
           htmlPluginData.assets.js.push(url + '.js')
         }
-        if (callback) {
-          return callback(null, htmlPluginData)
-        } else {
-          return Promise.resolve(htmlPluginData)
-        }
+        cb(null, htmlPluginData)
       })
-    })
+    )
 
     if (!useCDN) {
       compiler.hooks.emit.tapAsync('HtmlWebpackIconfontPlugin', async (compilation, cb) => {

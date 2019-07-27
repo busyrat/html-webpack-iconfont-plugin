@@ -1,5 +1,7 @@
 # html-webpack-iconfont-plugin
 
+基于 html-webpack-plugins 快速引入 iconfont 图标库到 html 模板中
+
 ## install
 
 ```

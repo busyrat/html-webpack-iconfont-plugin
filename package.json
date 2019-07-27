@@ -1,7 +1,7 @@
 {
   "name": "html-webpack-iconfont-plugin",
-  "version": "1.0.0",
-  "description": "添加",
+  "version": "1.0.1",
+  "description": "基于 html-webpack-plugins 快速引入 iconfont 图标库到 html 模板中",
   "main": "index.js",
   "license": "MIT",
   "author": "busyrat",
